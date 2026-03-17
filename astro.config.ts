@@ -6,9 +6,12 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
+const basePath = new URL(SITE.website).pathname.replace(/\/$/, "") || "/";
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  base: basePath,
   integrations: [
     tailwind({
       applyBaseStyles: false,
